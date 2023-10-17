@@ -1,0 +1,29 @@
+{
+  "name": "farm-api",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/farm-api/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nx/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/farm-api",
+        "main": "libs/farm-api/src/index.ts",
+        "tsConfig": "libs/farm-api/tsconfig.lib.json",
+        "assets": ["libs/farm-api/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nx/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/farm-api/**/*.ts",
+          "libs/farm-api/package.json"
+        ]
+      }
+    }
+  },
+  "tags": []
+}

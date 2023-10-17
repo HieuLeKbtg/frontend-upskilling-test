@@ -1,0 +1,430 @@
+[{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5104"
+  },
+  "name": "Green Acres Farm",
+  "description": "A family-owned farm dedicated to providing the freshest organic produce in the region.",
+  "tags": [
+    "Organic",
+    "Fresh Produce",
+    "Local",
+    "Family-Owned"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5105"
+  },
+  "name": "Sunflower Valley Farm",
+  "description": "Specializing in sunflowers and a variety of organic vegetables.",
+  "tags": [
+    "Organic",
+    "Sunflowers",
+    "Vegetables"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5106"
+  },
+  "name": "Harvest Moon Acres",
+  "description": "A scenic farm with a wide range of seasonal fruits and vegetables.",
+  "tags": [
+    "Fruits",
+    "Vegetables",
+    "Scenic",
+    "Seasonal"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5107"
+  },
+  "name": "Meadowbrook Farms",
+  "description": "Home to free-range chickens, organic eggs, and a peaceful meadow setting.",
+  "tags": [
+    "Free-Range Chickens",
+    "Organic Eggs",
+    "Meadow"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5108"
+  },
+  "name": "Maplewood Orchards",
+  "description": "A picturesque orchard known for its delicious apples and apple-based products.",
+  "tags": [
+    "Orchard",
+    "Apples",
+    "Cider",
+    "Local"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5109"
+  },
+  "name": "Blueberry Hill Farm",
+  "description": "Pick your own blueberries and enjoy the serene countryside.",
+  "tags": [
+    "Blueberries",
+    "Pick Your Own",
+    "Countryside"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f510a"
+  },
+  "name": "Sunny Side Ranch",
+  "description": "A sustainable ranch offering grass-fed beef and organic dairy products.",
+  "tags": [
+    "Sustainable",
+    "Grass-Fed Beef",
+    "Dairy"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f510b"
+  },
+  "name": "Heritage Acres",
+  "description": "Preserving heritage breeds of livestock and producing quality meats.",
+  "tags": [
+    "Heritage Breeds",
+    "Quality Meats",
+    "Livestock"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f510c"
+  },
+  "name": "Bountiful Gardens",
+  "description": "Beautiful gardens filled with a wide variety of flowers and herbs.",
+  "tags": [
+    "Gardens",
+    "Flowers",
+    "Herbs"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f510d"
+  },
+  "name": "Oakridge Vineyards",
+  "description": "Award-winning wines produced from vineyards nestled in the rolling hills.",
+  "tags": [
+    "Vineyards",
+    "Wines",
+    "Award-Winning",
+    "Hills"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f510e"
+  },
+  "name": "Riverside Meadows",
+  "description": "A charming farm with fresh produce and a scenic riverside location.",
+  "tags": [
+    "Fresh Produce",
+    "Riverside",
+    "Charming"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f510f"
+  },
+  "name": "Farmstead Creamery",
+  "description": "Artisanal cheeses and dairy products made from locally sourced milk.",
+  "tags": [
+    "Artisanal Cheese",
+    "Dairy",
+    "Local"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5110"
+  },
+  "name": "Golden Harvest Farms",
+  "description": "Pumpkin patches, corn mazes, and seasonal fun for the whole family.",
+  "tags": [
+    "Pumpkins",
+    "Corn Mazes",
+    "Family Fun",
+    "Seasonal"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5111"
+  },
+  "name": "Evergreen Meadows",
+  "description": "A year-round destination for fresh Christmas trees and wreaths.",
+  "tags": [
+    "Christmas Trees",
+    "Wreaths",
+    "Year-Round"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5112"
+  },
+  "name": "Mountain View Apiary",
+  "description": "Local honey and beekeeping supplies from a mountain-view location.",
+  "tags": [
+    "Local Honey",
+    "Beekeeping",
+    "Mountain View"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5113"
+  },
+  "name": "Valley Farmstead",
+  "description": "A diverse selection of crops, including heirloom vegetables and rare fruits.",
+  "tags": [
+    "Heirloom Vegetables",
+    "Rare Fruits",
+    "Diverse Crops"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5114"
+  },
+  "name": "Prairie Winds Farm",
+  "description": "Sustainable farming practices and a focus on heirloom grains.",
+  "tags": [
+    "Sustainable Farming",
+    "Heirloom Grains"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5115"
+  },
+  "name": "Hickory Ridge Vineyards",
+  "description": "Tasting room and vineyards nestled in a scenic hickory forest.",
+  "tags": [
+    "Tasting Room",
+    "Vineyards",
+    "Scenic"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5116"
+  },
+  "name": "Cedarwood Acres",
+  "description": "A peaceful retreat with cedar trees, herbs, and organic lavender products.",
+  "tags": [
+    "Cedar Trees",
+    "Herbs",
+    "Lavender Products",
+    "Peaceful Retreat"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5117"
+  },
+  "name": "Country Blossom Farm",
+  "description": "Blossoming gardens with seasonal flowers and floral arrangements.",
+  "tags": [
+    "Gardens",
+    "Floral Arrangements",
+    "Seasonal Flowers"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5118"
+  },
+  "name": "Red Barn Ranch",
+  "description": "Classic red barn, hayrides, and a variety of farm animals to meet.",
+  "tags": [
+    "Red Barn",
+    "Hayrides",
+    "Farm Animals"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5119"
+  },
+  "name": "Sunset View Farm",
+  "description": "Spectacular sunsets, local produce, and a friendly farm community.",
+  "tags": [
+    "Sunsets",
+    "Local Produce",
+    "Farm Community"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f511a"
+  },
+  "name": "Wildflower Acres",
+  "description": "A natural habitat for wildflowers and native plants, perfect for nature enthusiasts.",
+  "tags": [
+    "Wildflowers",
+    "Native Plants",
+    "Nature Enthusiasts"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f511b"
+  },
+  "name": "Farmers' Haven",
+  "description": "A haven for farmers, artisans, and handmade products from the region.",
+  "tags": [
+    "Farmers",
+    "Artisans",
+    "Handmade Products"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f511c"
+  },
+  "name": "Beechwood Orchard",
+  "description": "Orchard with a variety of fruit trees and fresh apple cider.",
+  "tags": [
+    "Fruit Trees",
+    "Apple Cider",
+    "Orchard"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f511d"
+  },
+  "name": "Misty Meadows Farm",
+  "description": "Misty mornings and fresh dairy products from contented cows.",
+  "tags": [
+    "Misty Mornings",
+    "Dairy Products",
+    "Contented Cows"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f511e"
+  },
+  "name": "Sweet Blossom Gardens",
+  "description": "Sweet blossoms, organic herbs, and a tranquil garden setting.",
+  "tags": [
+    "Sweet Blossoms",
+    "Organic Herbs",
+    "Tranquil Garden"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f511f"
+  },
+  "name": "Riverbend Acres",
+  "description": "Fertile riverbanks and a variety of crops grown by the water's edge.",
+  "tags": [
+    "Riverbanks",
+    "Crops",
+    "Water's Edge"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5120"
+  },
+  "name": "Golden Fields Farm",
+  "description": "Fields of golden wheat, oats, and barley, and artisanal bread products.",
+  "tags": [
+    "Golden Fields",
+    "Wheat",
+    "Oats",
+    "Barley",
+    "Artisanal Bread"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5121"
+  },
+  "name": "Pine Grove Apiaries",
+  "description": "Local honey, beeswax, and beekeeping lessons among the pine groves.",
+  "tags": [
+    "Local Honey",
+    "Beeswax",
+    "Beekeeping Lessons",
+    "Pine Groves"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5122"
+  },
+  "name": "Serenity Valley Farm",
+  "description": "Serenity and peace in the valley, with a variety of organic vegetables.",
+  "tags": [
+    "Serenity",
+    "Peace",
+    "Valley",
+    "Organic Vegetables"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5123"
+  },
+  "name": "Mossy Oak Farm",
+  "description": "Mossy oaks and a variety of foraged mushrooms and forest produce.",
+  "tags": [
+    "Mossy Oaks",
+    "Foraged Mushrooms",
+    "Forest Produce"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5124"
+  },
+  "name": "Hidden Gem Gardens",
+  "description": "Discover hidden gems in the form of rare plants and botanical treasures.",
+  "tags": [
+    "Hidden Gems",
+    "Rare Plants",
+    "Botanical Treasures"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5125"
+  },
+  "name": "Cottonwood Ranch",
+  "description": "Cottonwood trees and a ranch known for quality beef and wool.",
+  "tags": [
+    "Cottonwood Trees",
+    "Quality Beef",
+    "Wool",
+    "Ranch"
+  ]
+},
+{
+  "_id": {
+    "$oid": "652dcc16174c3b0c628f5126"
+  },
+  "name": "Prairie Sky Vineyards",
+  "description": "Vineyards under the wide open prairie sky, offering fine wines.",
+  "tags": [
+    "Vineyards",
+    "Prairie Sky",
+    "Fine Wines"
+  ]
+}]
