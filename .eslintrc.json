@@ -1,127 +1,127 @@
 {
-  "root": true,
-  "parser": "@typescript-eslint/parser",
-  "ignorePatterns": ["**/*"],
-  "overrides": [
-      {
-        "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
-        "rules": {
-          "@nx/enforce-module-boundaries": [
-            "error",
-            {
-              "enforceBuildableLibDependency": true,
-              "allow": [],
-              "depConstraints": [
-                {
-                  "sourceTag": "*",
-                  "onlyDependOnLibsWithTags": ["*"]
-                }
-              ]
-            }
-          ]
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "ignorePatterns": ["**/*"],
+    "overrides": [
+        { 
+          "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+          "rules": {
+            "@nx/enforce-module-boundaries": [
+              "error",
+              {
+                "enforceBuildableLibDependency": true,
+                "allow": [],
+                "depConstraints": [
+                  {
+                    "sourceTag": "*",
+                    "onlyDependOnLibsWithTags": ["*"]
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "files": ["*.ts", "*.tsx"],
+          "extends": ["plugin:@nx/typescript"],
+          "rules": {}
+        },
+        {
+          "files": ["*.js", "*.jsx"],
+          "extends": ["plugin:@nx/javascript"],
+          "rules": {}
         }
-      },
-      {
-        "files": ["*.ts", "*.tsx"],
-        "extends": ["plugin:@nx/typescript"],
-        "rules": {}
-      },
-      {
-        "files": ["*.js", "*.jsx"],
-        "extends": ["plugin:@nx/javascript"],
-        "rules": {}
-      }
+      ],
+    "plugins": [
+        "@typescript-eslint",
+        "unused-imports",
+        "prettier",
+        "simple-import-sort",
+        "import",
+        "@nx"
     ],
-  "plugins": [
-      "@typescript-eslint",
-      "unused-imports",
-      "prettier",
-      "simple-import-sort",
-      "import",
-      "@nx"
-  ],
-  "extends": [
-      "standard",
-      "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
-      "plugin:prettier/recommended",
-      "plugin:@typescript-eslint/eslint-recommended",
-      "plugin:react-hooks/recommended",
-      "prettier"
-  ],
-  "env": {
-      "node": true,
-      "es6": true
-  },
-  "parserOptions": {
-      "ecmaVersion": 2022, // Allows for the parsing of modern ECMAScript features
-      "sourceType": "module", // Allows for the use of imports
-      "ecmaFeatures": {
-          "legacyDecorators": true,
-          "jsx": true // Allows for the parsing of JSX
-      }
-  },
-  "rules": {
-      "space-before-function-paren": 0, 
-      "simple-import-sort/imports": "error",
-      "simple-import-sort/exports": "error",
-      "import/first": "error",
-      "import/newline-after-import": "error",
-      "import/no-duplicates": "error",
-      "react/display-name": "off",
-      "react/jsx-no-bind": [
-          1,
-          {
-              "allowArrowFunctions": true
-          }
-      ],
-      "react/prop-types": 0,
-      "react/jsx-handler-names": 0,
-      "react/jsx-fragments": [
-          "warn",
-          // mode, `syntax` || `element`
-          "syntax"
-      ],
-      // Turn this of since React 17
-      "react/react-in-jsx-scope": "off",
-      "react/jsx-no-target-blank": 1,
-      "react/no-did-update-set-state": 0,
-      "react/no-unused-prop-types": 0,
-      "react/jsx-curly-brace-presence": [1, "never"],
-      "react/no-unescaped-entities": 0,
-      "import/export": 0,
-      "no-unused-vars": "off",
-      "@typescript-eslint/no-unused-vars": [
-          "warn",
-          {
-              "vars": "all",
-              "args": "none",
-              "ignoreRestSiblings": true
-          }
-      ],
-      "unused-imports/no-unused-imports": "error",
-      "unused-imports/no-unused-vars": [
-          "warn",
-          {
-              "vars": "all",
-              "varsIgnorePattern": "^_",
-              "args": "after-used",
-              "argsIgnorePattern": "^_"
-          }
-      ],
-      "no-new": 1,
-      "camelcase": [0, { "properties": "never" }],
-      "no-unused-expressions": 1,
-      // off this, there are cases we want to use the lone block to group a block of code
-      "no-lone-blocks": 0,
-      "no-use-before-define": "off",
-      "react-hooks/rules-of-hooks": "error",
-      "react-hooks/exhaustive-deps": 1,
-      "@typescript-eslint/no-explicit-any": 0,
-      "prettier/prettier": ["off", { "singleQuote": true }]
-  },
-  "settings": {
-      "react": {
-          "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
-      }
-  }
+    "extends": [
+        "standard",
+        "plugin:react/recommended", // Uses the recommended rules from @eslint-plugin-react
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:react-hooks/recommended",
+        "prettier"
+    ],
+    "env": {
+        "node": true,
+        "es6": true
+    },
+    "parserOptions": {
+        "ecmaVersion": 2022, // Allows for the parsing of modern ECMAScript features
+        "sourceType": "module", // Allows for the use of imports
+        "ecmaFeatures": {
+            "legacyDecorators": true,
+            "jsx": true // Allows for the parsing of JSX
+        }
+    },
+    "rules": {
+        "space-before-function-paren": 0, 
+        "simple-import-sort/imports": "error",
+        "simple-import-sort/exports": "error",
+        "import/first": "error",
+        "import/newline-after-import": "error",
+        "import/no-duplicates": "error",
+        "react/display-name": "off",
+        "react/jsx-no-bind": [
+            1,
+            {
+                "allowArrowFunctions": true
+            }
+        ],
+        "react/prop-types": 0,
+        "react/jsx-handler-names": 0,
+        "react/jsx-fragments": [
+            "warn",
+            // mode, `syntax` || `element`
+            "syntax"
+        ],
+        // Turn this of since React 17
+        "react/react-in-jsx-scope": "off",
+        "react/jsx-no-target-blank": 1,
+        "react/no-did-update-set-state": 0,
+        "react/no-unused-prop-types": 0,
+        "react/jsx-curly-brace-presence": [1, "never"],
+        "react/no-unescaped-entities": 0,
+        "import/export": 0,
+        "no-unused-vars": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "args": "none",
+                "ignoreRestSiblings": true
+            }
+        ],
+        "unused-imports/no-unused-imports": "error",
+        "unused-imports/no-unused-vars": [
+            "warn",
+            {
+                "vars": "all",
+                "varsIgnorePattern": "^_",
+                "args": "after-used",
+                "argsIgnorePattern": "^_"
+            }
+        ],
+        "no-new": 1,
+        "camelcase": [0, { "properties": "never" }],
+        "no-unused-expressions": 1,
+        // off this, there are cases we want to use the lone block to group a block of code
+        "no-lone-blocks": 0,
+        "no-use-before-define": "off",
+        "react-hooks/rules-of-hooks": "error",
+        "react-hooks/exhaustive-deps": 1,
+        "@typescript-eslint/no-explicit-any": 0,
+        "prettier/prettier": ["off", { "singleQuote": true }]
+    },
+    "settings": {
+        "react": {
+            "version": "detect" // Tells eslint-plugin-react to automatically detect the version of React to use
+        }
+    }
 }
