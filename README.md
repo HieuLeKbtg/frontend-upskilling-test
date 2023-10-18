@@ -143,10 +143,13 @@ At the end you should have PRs that are stacked like this:
 Please add your planned working dates here (Mon - Fri).
 
 ### Actual dates
-|date|
-|-|
-|TODO|
-
+| date    | Start    | Stop    |
+| -------- | ------- | ------- |
+| 2023-10-18 | 9.am | 18.pm |
+| 2023-10-19 | 9.am | 18.pm |
+| 2023-10-20 | 9.am | 18.pm |
+| 2023-10-23 | 9.am | 18.pm |
+| 2023-10-24 | 9.am | 18.pm |
 
 ### Sample dates
 |date|
