@@ -2,7 +2,9 @@
   "name": "@frontendv2/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "start": "npx nx serve demo-app"
+  },
   "private": true,
   "dependencies": {
     "@nx/next": "16.10.0",
