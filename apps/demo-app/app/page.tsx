@@ -1,4 +1,4 @@
-import { DemoComponent } from '@frontendv2/demo-lib';
+import { DemoComponent } from '@libs/demo-lib';
 import styles from './page.module.css';
 
 export default async function Index() {

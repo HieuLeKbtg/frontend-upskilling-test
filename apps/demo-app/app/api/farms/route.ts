@@ -1,4 +1,4 @@
-import { APIFarmDataService, connectToMongoClient } from '@frontendv2/farm-api';
+import { APIFarmDataService, connectToMongoClient } from '@libs/farm-api';
 import { NextResponse } from 'next/server';
 
 export async function GET(request: Request) {
