@@ -1,68 +1,75 @@
 {
-  "name": "homepage",
-  "$schema": "../../node_modules/nx/schemas/project-schema.json",
-  "sourceRoot": "apps/homepage",
-  "projectType": "application",
-  "targets": {
-    "build": {
-      "executor": "@nx/next:build",
-      "outputs": ["{options.outputPath}"],
-      "defaultConfiguration": "production",
-      "options": {
-        "outputPath": "dist/apps/homepage"
-      },
-      "configurations": {
-        "development": {
-          "outputPath": "apps/homepage"
+    "name": "homepage",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/homepage",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/next:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist/apps/homepage",
+                "assets": [
+                    {
+                        "input": "./libs/utils/src/lib/assets",
+                        "glob": "**/*",
+                        "output": "assets"
+                    }
+                ]
+            },
+            "configurations": {
+                "development": {
+                    "outputPath": "apps/homepage"
+                },
+                "production": {}
+            }
         },
-        "production": {}
-      }
-    },
-    "serve": {
-      "executor": "@nx/next:server",
-      "defaultConfiguration": "development",
-      "options": {
-        "buildTarget": "homepage:build",
-        "dev": true
-      },
-      "configurations": {
-        "development": {
-          "buildTarget": "homepage:build:development",
-          "dev": true
+        "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "homepage:build",
+                "dev": true
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "homepage:build:development",
+                    "dev": true
+                },
+                "production": {
+                    "buildTarget": "homepage:build:production",
+                    "dev": false
+                }
+            }
         },
-        "production": {
-          "buildTarget": "homepage:build:production",
-          "dev": false
+        "export": {
+            "executor": "@nx/next:export",
+            "options": {
+                "buildTarget": "homepage:build:production"
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/homepage/jest.config.ts",
+                "passWithNoTests": true
+            },
+            "configurations": {
+                "ci": {
+                    "ci": true,
+                    "codeCoverage": true
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/homepage/**/*.{ts,tsx,js,jsx}"]
+            }
         }
-      }
     },
-    "export": {
-      "executor": "@nx/next:export",
-      "options": {
-        "buildTarget": "homepage:build:production"
-      }
-    },
-    "test": {
-      "executor": "@nx/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
-      "options": {
-        "jestConfig": "apps/homepage/jest.config.ts",
-        "passWithNoTests": true
-      },
-      "configurations": {
-        "ci": {
-          "ci": true,
-          "codeCoverage": true
-        }
-      }
-    },
-    "lint": {
-      "executor": "@nx/linter:eslint",
-      "outputs": ["{options.outputFile}"],
-      "options": {
-        "lintFilePatterns": ["apps/homepage/**/*.{ts,tsx,js,jsx}"]
-      }
-    }
-  },
-  "tags": []
+    "tags": []
 }

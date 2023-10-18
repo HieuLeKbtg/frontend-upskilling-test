@@ -1,7 +1,5 @@
 'use client'
 
-import 'normalize.css'
-
 import isPropValid from '@emotion/is-prop-valid'
 import { StyledComponentsRegistry } from '@libs/registries'
 import { ReactNode } from 'react'
@@ -17,10 +15,10 @@ const CustomProvider = (props: CustomProviderProps) => {
     const { children } = props
     return (
         <StyleSheetManager shouldForwardProp={isPropValid}>
-                <StyledComponentsRegistry>
-                    <GlobalStyles />
-                    {children}
-                </StyledComponentsRegistry>
+            <StyledComponentsRegistry>
+                <GlobalStyles />
+                {children}
+            </StyledComponentsRegistry>
         </StyleSheetManager>
     )
 }

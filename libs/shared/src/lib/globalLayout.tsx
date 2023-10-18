@@ -1,5 +1,4 @@
-import 'normalize.css'
-
+import { Footer, Header,Hero } from '@libs/components'
 import { ReactNode } from 'react'
 
 type GlobalLayoutProps = {
@@ -9,7 +8,14 @@ type GlobalLayoutProps = {
 const GlobalLayout = (props: GlobalLayoutProps) => {
     const { children } = props
 
-    return <div id='global-layout'>{children}</div>
+    return (
+        <div id='global-layout' style={{ height: '100vh' }}>
+            <Header />
+            <Hero />
+            {children}
+            <Footer />
+        </div>
+    )
 }
 
 export default GlobalLayout

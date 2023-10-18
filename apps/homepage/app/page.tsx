@@ -1,3 +1,5 @@
+import { StyledHomepage } from './homepage.styled'
+
 export default function Homepage() {
-    return <div>homepage</div>
+    return <StyledHomepage>Homepage</StyledHomepage>
 }

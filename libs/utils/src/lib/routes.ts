@@ -1,8 +1,8 @@
 export enum appRoutes {
-    HOME = '/',
+    HOME = '/'
     // BROWSE = '/browse',
 }
 
 export enum AppRoutesWithPort {
-    HOME = 'http://localhost:4200',
+    HOME = 'http://localhost:4200'
 }
