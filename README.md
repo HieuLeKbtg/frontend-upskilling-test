@@ -145,7 +145,7 @@ Please add your planned working dates here (Mon - Fri).
 ### Actual dates
 | date    | Start    | Stop    |
 | -------- | ------- | ------- |
-| 2023-10-18 | 9.am | 18.pm |
+| 2023-10-18 | 9.am | 18.30 pm |
 | 2023-10-19 | 9.am | 18.pm |
 | 2023-10-20 | 9.am | 18.pm |
 | 2023-10-23 | 9.am | 18.pm |

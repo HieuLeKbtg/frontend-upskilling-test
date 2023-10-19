@@ -1,24 +1,30 @@
 {
-  "compileOnSave": false,
-  "compilerOptions": {
-    "rootDir": ".",
-    "sourceMap": true,
-    "declaration": false,
-    "moduleResolution": "node",
-    "emitDecoratorMetadata": true,
-    "experimentalDecorators": true,
-    "importHelpers": true,
-    "target": "es2015",
-    "module": "esnext",
-    "lib": ["es2020", "dom"],
-    "skipLibCheck": true,
-    "skipDefaultLibCheck": true,
-    "baseUrl": ".",
-    "paths": {
-      "@frontendv2/demo-lib": ["libs/demo-lib/src/index.ts"],
-      "@frontendv2/demo-lib/server": ["libs/demo-lib/src/server.ts"],
-      "@frontendv2/farm-api": ["libs/farm-api/src/index.ts"]
-    }
-  },
-  "exclude": ["node_modules", "tmp"]
+    "compileOnSave": false,
+    "compilerOptions": {
+        "rootDir": ".",
+        "sourceMap": true,
+        "declaration": false,
+        "moduleResolution": "node",
+        "emitDecoratorMetadata": true,
+        "experimentalDecorators": true,
+        "importHelpers": true,
+        "target": "es2015",
+        "module": "esnext",
+        "lib": ["es2020", "dom"],
+        "skipLibCheck": true,
+        "skipDefaultLibCheck": true,
+        "baseUrl": ".",
+        "paths": {
+            "@libs/components": ["libs/components/src/index.ts"],
+            "@libs/demo-lib": ["libs/demo-lib/src/index.ts"],
+            "@libs/demo-lib/server": ["libs/demo-lib/src/server.ts"],
+            "@libs/farm-api": ["libs/farm-api/src/index.ts"],
+            "@libs/registries": ["libs/registries/src/index.ts"],
+            "@libs/services": ["libs/services/src/index.ts"],
+            "@libs/shared": ["libs/shared/src/index.ts"],
+            "@libs/types": ["libs/types/src/index.ts"],
+            "@libs/utils": ["libs/utils/src/index.ts"]
+        }
+    },
+    "exclude": ["node_modules", "tmp"]
 }

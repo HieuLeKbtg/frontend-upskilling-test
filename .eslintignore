@@ -1,1 +1,12 @@
-node_modules
+build
+node_modules/**/*
+.github
+package.json
+package-lock.json
+.prettierrc
+.prettierignore
+next-env.d.ts
+README.md
+.eslintrc.json
+tsconfig.json
+.eslintcache
