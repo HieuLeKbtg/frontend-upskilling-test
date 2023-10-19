@@ -7,7 +7,11 @@ const StyledHeader = styled.header`
     height: 80px;
     display: flex;
     align-items: center;
-    background-color: #ddd;
+    background: linear-gradient(
+        270deg,
+        rgb(0, 90, 255) 0%,
+        rgb(0, 23, 68) 100%
+    );
     padding: 0 16px;
 `
 
@@ -23,8 +27,9 @@ const StyledLink = styled.a`
     color: #fff;
     cursor: pointer;
     margin-left: 16px;
+    letter-spacing: 0.1em;
     &:hover {
-        font-weight: 700;
+        text-shadow: 0px 0px 1px #fff;
     }
 `
 

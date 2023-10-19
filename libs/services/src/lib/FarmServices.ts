@@ -1,13 +1,13 @@
+import { APIConfig, Farm, FarmProduct } from '@libs/types'
 import { Collection, MongoClient, ObjectId } from 'mongodb'
 
-import { IAPIConfig } from '../types/IAPIConfig'
-import { IFarm } from '../types/IFarm'
-import { IFarmProduct } from '../types/IFarmProduct'
+import connectToMongoClient from './connectToMongo'
 
 function deriveKeyValueMapFromSearchParams(
     searchParams: URLSearchParams
 ): Map<string, string> {
     const map = new Map<string, string>()
+
     for (const [key, value] of searchParams.entries()) {
         map.set(key, value)
     }
@@ -23,7 +23,7 @@ function deriveQuerySkipFromURLParam(
     return skip
 }
 
-const API_CONFIG: IAPIConfig = {
+const API_CONFIG: APIConfig = {
     landingPageFarmsPageParam: 'page_num',
     landingPageFarmsPageSize: 10,
     numPromotionalProductsSectionParam: 'promo_num',
@@ -31,10 +31,17 @@ const API_CONFIG: IAPIConfig = {
     promotionalProductTags: ['hot', 'new']
 }
 
-export class APIFarmDataService {
-    constructor(protected mongoClient: MongoClient) {}
+class FarmServices {
+    private mongoClient: Promise<MongoClient>
+    constructor() {
+        this.mongoClient = this._ConnectMogoDb()
+    }
 
-    public async genFarms(urlParams: URLSearchParams): Promise<IFarm[]> {
+    private async _ConnectMogoDb() {
+        return connectToMongoClient
+    }
+
+    public async genFarms(urlParams: URLSearchParams): Promise<Farm[]> {
         const queryParamsMap = deriveKeyValueMapFromSearchParams(urlParams)
         const pageSize = API_CONFIG.landingPageFarmsPageSize
         const skip = deriveQuerySkipFromURLParam(
@@ -46,14 +53,14 @@ export class APIFarmDataService {
         return farmsColl.find().skip(skip).limit(pageSize).toArray()
     }
 
-    public async genFarmById(id: string): Promise<IFarm | null> {
+    public async genFarmById(id: string): Promise<Farm | null> {
         const farmsColl = await this.genFarmsCollection()
         return farmsColl.findOne({
             _id: new ObjectId(id)
         })
     }
 
-    public async genProductsForFarm(farmId: string): Promise<IFarmProduct[]> {
+    public async genProductsForFarm(farmId: string): Promise<FarmProduct[]> {
         const farmProductsColl = await this.genFarmProductsCollection()
         return farmProductsColl
             .find({ farm_id: new ObjectId(farmId) })
@@ -62,7 +69,7 @@ export class APIFarmDataService {
 
     public async genPromotionalFarmProducts(
         urlParams: URLSearchParams
-    ): Promise<IFarmProduct[]> {
+    ): Promise<FarmProduct[]> {
         const queryParamsMap = deriveKeyValueMapFromSearchParams(urlParams)
         const pageSize = API_CONFIG.numPromotionalProductsSectionSize
         const skip = deriveQuerySkipFromURLParam(
@@ -81,13 +88,15 @@ export class APIFarmDataService {
             .toArray()
     }
 
-    private async genFarmsCollection(): Promise<Collection<IFarm>> {
-        return this.mongoClient.db().collection<IFarm>('farms')
+    private async genFarmsCollection(): Promise<Collection<Farm>> {
+        return (await this.mongoClient).db().collection<Farm>('farms')
     }
 
     private async genFarmProductsCollection(): Promise<
-        Collection<IFarmProduct>
+        Collection<FarmProduct>
     > {
-        return this.mongoClient.db().collection<IFarmProduct>('products')
+        return (await this.mongoClient).db().collection<FarmProduct>('products')
     }
 }
+
+export const farmServices: FarmServices = new FarmServices()

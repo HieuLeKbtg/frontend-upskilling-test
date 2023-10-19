@@ -11,10 +11,18 @@ const StyledFooter = styled.footer`
     margin-top: auto;
 `
 
+const StyledFooterContent = styled.h4`
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
+`
+
 export function Footer() {
     return (
         <StyledFooter>
-            <h4>© 2023 Frontend Test By Hieu Le. ALL RIGHTS RESERVED</h4>
+            <StyledFooterContent>
+                © 2023 Frontend Test By Hieu Le. ALL RIGHTS RESERVED
+            </StyledFooterContent>
         </StyledFooter>
     )
 }

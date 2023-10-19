@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
+        "start:demo-app": "npx nx serve demo-app",
         "start:homepage": "npx nx serve homepage"
     },
     "private": true,
