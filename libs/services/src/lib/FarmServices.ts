@@ -1,4 +1,4 @@
-import { APIConfig, Farm, FarmProduct } from '@libs/types'
+import { APIConfig, Farm, FarmProduct, ParsedFarm } from '@libs/types'
 import { Collection, MongoClient, ObjectId } from 'mongodb'
 
 import connectToMongoClient from './connectToMongo'
@@ -41,7 +41,7 @@ class FarmServices {
         return connectToMongoClient
     }
 
-    public async genFarms(urlParams: URLSearchParams): Promise<Farm[]> {
+    public async genFarms(urlParams: URLSearchParams): Promise<ParsedFarm[]> {
         const queryParamsMap = deriveKeyValueMapFromSearchParams(urlParams)
         const pageSize = API_CONFIG.landingPageFarmsPageSize
         const skip = deriveQuerySkipFromURLParam(
@@ -50,7 +50,14 @@ class FarmServices {
         )
 
         const farmsColl = await this.genFarmsCollection()
-        return farmsColl.find().skip(skip).limit(pageSize).toArray()
+        const farmList = farmsColl.find().skip(skip).limit(pageSize).toArray()
+
+        // default _id form mongoDB is object, we need to convert it to string
+        const parsedFarmList = (await farmList).map((farm) => {
+            return { ...farm, _id: farm._id.toString() }
+        })
+
+        return parsedFarmList
     }
 
     public async genFarmById(id: string): Promise<Farm | null> {

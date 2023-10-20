@@ -1,5 +1,7 @@
-import { Footer, Header,Hero } from '@libs/components'
+import { Footer, Header, Hero } from '@libs/components'
 import { ReactNode } from 'react'
+
+import { StyledMain } from './globaLayout.styled'
 
 type GlobalLayoutProps = {
     children: ReactNode
@@ -12,7 +14,8 @@ const GlobalLayout = (props: GlobalLayoutProps) => {
         <div id='global-layout' style={{ height: '100vh' }}>
             <Header />
             <Hero />
-            {children}
+            <StyledMain>{children}</StyledMain>
+            `
             <Footer />
         </div>
     )

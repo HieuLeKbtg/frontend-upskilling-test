@@ -3,8 +3,10 @@
     "version": "0.0.0",
     "license": "MIT",
     "scripts": {
-        "start:demo-app": "npx nx serve demo-app",
-        "start:homepage": "npx nx serve homepage"
+        "dev:demo-app": "npx nx serve demo-app",
+        "dev:homepage": "npx nx serve homepage",
+        "dev:farmpage": "npx nx serve farmpage",
+        "dev": "npx nx run-many --target=serve --projects=homepage,farmpage --parallel=2"
     },
     "private": true,
     "dependencies": {

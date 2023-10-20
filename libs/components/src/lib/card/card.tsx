@@ -1,10 +1,10 @@
 'use client'
 
-import { Farm } from '@libs/types'
+import { ParsedFarm } from '@libs/types'
 import styled from 'styled-components'
 
 export type CardProps = {
-    data: Farm
+    data: ParsedFarm
 }
 
 const StyledCard = styled.article`
