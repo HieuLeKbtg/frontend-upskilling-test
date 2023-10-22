@@ -1,5 +1,7 @@
 'use client'
 
+import { AppRoutesWithPort } from '@libs/utils'
+import { useRouter } from 'next/navigation'
 import styled from 'styled-components'
 
 const StyledHeader = styled.header`
@@ -34,11 +36,13 @@ const StyledLink = styled.a`
 `
 
 export const Header = () => {
+    const router = useRouter()
     return (
         <StyledHeader>
             <StyledLogo src='assets/images/logo.png' alt='logo' />
-            <StyledLink>Home</StyledLink>
-            <StyledLink>Farm</StyledLink>
+            <StyledLink onClick={() => router.push(AppRoutesWithPort.HOME)}>
+                Home
+            </StyledLink>
         </StyledHeader>
     )
 }

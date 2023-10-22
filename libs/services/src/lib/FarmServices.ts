@@ -1,4 +1,10 @@
-import { APIConfig, Farm, FarmProduct, ParsedFarm } from '@libs/types'
+import {
+    APIConfig,
+    Farm,
+    FarmProduct,
+    ParsedFarm,
+    ParsedFarmProduct
+} from '@libs/types'
 import { Collection, MongoClient, ObjectId } from 'mongodb'
 
 import connectToMongoClient from './connectToMongo'
@@ -41,6 +47,16 @@ class FarmServices {
         return connectToMongoClient
     }
 
+    private async genFarmsCollection(): Promise<Collection<Farm>> {
+        return (await this.mongoClient).db().collection<Farm>('farms')
+    }
+
+    private async genFarmProductsCollection(): Promise<
+        Collection<FarmProduct>
+    > {
+        return (await this.mongoClient).db().collection<FarmProduct>('products')
+    }
+
     public async genFarms(urlParams: URLSearchParams): Promise<ParsedFarm[]> {
         const queryParamsMap = deriveKeyValueMapFromSearchParams(urlParams)
         const pageSize = API_CONFIG.landingPageFarmsPageSize
@@ -60,18 +76,31 @@ class FarmServices {
         return parsedFarmList
     }
 
-    public async genFarmById(id: string): Promise<Farm | null> {
+    public async genFarmById(id: string): Promise<ParsedFarm | null> {
         const farmsColl = await this.genFarmsCollection()
-        return farmsColl.findOne({
+        const farmById = await farmsColl.findOne({
             _id: new ObjectId(id)
         })
+        return farmById ? { ...farmById, _id: farmById._id.toString() } : null
     }
 
-    public async genProductsForFarm(farmId: string): Promise<FarmProduct[]> {
+    public async genProductsForFarm(
+        farmId: string
+    ): Promise<ParsedFarmProduct[]> {
         const farmProductsColl = await this.genFarmProductsCollection()
-        return farmProductsColl
+        const productsForFarm = farmProductsColl
             .find({ farm_id: new ObjectId(farmId) })
             .toArray()
+
+        const parsedProductsForFarm = (await productsForFarm).map((product) => {
+            return {
+                ...product,
+                _id: product._id.toString(),
+                farm_id: product.farm_id.toString()
+            }
+        })
+
+        return parsedProductsForFarm
     }
 
     public async genPromotionalFarmProducts(
@@ -93,16 +122,6 @@ class FarmServices {
             .skip(skip)
             .limit(pageSize)
             .toArray()
-    }
-
-    private async genFarmsCollection(): Promise<Collection<Farm>> {
-        return (await this.mongoClient).db().collection<Farm>('farms')
-    }
-
-    private async genFarmProductsCollection(): Promise<
-        Collection<FarmProduct>
-    > {
-        return (await this.mongoClient).db().collection<FarmProduct>('products')
     }
 }
 

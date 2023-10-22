@@ -1,4 +1,4 @@
-import { Card } from '@libs/components'
+import { CardFarm } from '@libs/components'
 import { farmServices } from '@libs/services'
 
 import { StyledHomepage } from './_styled/homepage.styled'
@@ -17,7 +17,7 @@ const Homepage = async (props: HomepageProps) => {
     return (
         <StyledHomepage>
             {farmList.map((farm, index) => {
-                return <Card key={index} data={farm} />
+                return <CardFarm key={index} data={farm} />
             })}
         </StyledHomepage>
     )

@@ -25,3 +25,8 @@ export interface FarmProduct {
     tags: FarmProductTag[]
     quantity: FarmProductQuantity
 }
+
+export type ParsedFarmProduct = Omit<FarmProduct, '_id' | 'farm_id'> & {
+    _id: string
+    farm_id: string
+}
