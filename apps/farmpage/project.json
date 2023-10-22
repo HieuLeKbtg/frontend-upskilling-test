@@ -1,0 +1,76 @@
+{
+    "name": "farmpage",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "apps/farmpage",
+    "projectType": "application",
+    "targets": {
+        "build": {
+            "executor": "@nx/next:build",
+            "outputs": ["{options.outputPath}"],
+            "defaultConfiguration": "production",
+            "options": {
+                "outputPath": "dist/apps/farmpage",
+                "assets": [
+                    {
+                        "input": "./libs/utils/src/lib/assets",
+                        "glob": "**/*",
+                        "output": "assets"
+                    }
+                ]
+            },
+            "configurations": {
+                "development": {
+                    "outputPath": "apps/farmpage"
+                },
+                "production": {}
+            }
+        },
+        "serve": {
+            "executor": "@nx/next:server",
+            "defaultConfiguration": "development",
+            "options": {
+                "buildTarget": "farmpage:build",
+                "dev": true,
+                "port": 4201
+            },
+            "configurations": {
+                "development": {
+                    "buildTarget": "farmpage:build:development",
+                    "dev": true
+                },
+                "production": {
+                    "buildTarget": "farmpage:build:production",
+                    "dev": false
+                }
+            }
+        },
+        "export": {
+            "executor": "@nx/next:export",
+            "options": {
+                "buildTarget": "farmpage:build:production"
+            }
+        },
+        "test": {
+            "executor": "@nx/jest:jest",
+            "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+            "options": {
+                "jestConfig": "apps/farmpage/jest.config.ts",
+                "passWithNoTests": true
+            },
+            "configurations": {
+                "ci": {
+                    "ci": true,
+                    "codeCoverage": true
+                }
+            }
+        },
+        "lint": {
+            "executor": "@nx/linter:eslint",
+            "outputs": ["{options.outputFile}"],
+            "options": {
+                "lintFilePatterns": ["apps/farmpage/**/*.{ts,tsx,js,jsx}"]
+            }
+        }
+    },
+    "tags": []
+}

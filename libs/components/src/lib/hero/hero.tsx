@@ -1,15 +1,46 @@
 'use client'
 
+import { ParsedFarm } from '@libs/types'
 import styled from 'styled-components'
 
-export interface HeroProps {}
+export type HeroProps = {
+    farmData: ParsedFarm | null
+}
 
 const StyledHero = styled.section`
     width: 100%;
     height: 400px;
-    background-color: #888;
+    background-color: #777;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
 `
 
-export const Hero = () => {
-    return <StyledHero>Hero Section here</StyledHero>
+const StyledHeroHeader = styled.h3`
+    font-size: 48px;
+    font-weight: 500;
+    color: #ff7d55;
+    margin-bottom: 16px;
+`
+
+const StyledHeroDesc = styled.p`
+    font-size: 24px;
+    color: #fff;
+    margin-bottom: 16px;
+`
+
+export const Hero = (props: HeroProps) => {
+    const { farmData } = props
+
+    return (
+        <StyledHero>
+            {farmData && (
+                <>
+                    <StyledHeroHeader>{farmData.name}</StyledHeroHeader>
+                    <StyledHeroDesc>{farmData.description}</StyledHeroDesc>
+                </>
+            )}
+        </StyledHero>
+    )
 }
