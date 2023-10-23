@@ -1,7 +1,11 @@
-import { CardFarm } from '@libs/components'
+import { CardFarm, CardProduct } from '@libs/components'
 import { farmServices } from '@libs/services'
 
-import { StyledHomepage } from './_styled/homepage.styled'
+import {
+    StyledHeading,
+    StyledList,
+    StyledListWithPromotionalProduct
+} from './_styled/homepage.styled'
 
 type HomepageProps = {
     searchParams: Record<string, string>
@@ -10,16 +14,52 @@ type HomepageProps = {
 const Homepage = async (props: HomepageProps) => {
     const { searchParams } = props
 
-    const farmList = await farmServices.genFarms(
-        new URLSearchParams(searchParams)
+    const urlSearchParams = new URLSearchParams(searchParams)
+
+    const farmList = await farmServices.genFarms(urlSearchParams)
+
+    const promotionalfarmList = await farmServices.genPromotionalFarmProducts(
+        urlSearchParams
+    )
+
+    const posToRenderPromotionalProduct = Math.floor(
+        farmList.length / promotionalfarmList.length
     )
 
     return (
-        <StyledHomepage>
-            {farmList.map((farm, index) => {
-                return <CardFarm key={index} data={farm} />
-            })}
-        </StyledHomepage>
+        <>
+            <StyledHeading>Farm List</StyledHeading>
+            <StyledList>
+                {farmList.map((farm, index) => {
+                    const currentPosPromotionalProduct = Math.floor(
+                        index / posToRenderPromotionalProduct
+                    )
+
+                    if (
+                        index > 0 &&
+                        index % posToRenderPromotionalProduct === 0 &&
+                        promotionalfarmList[currentPosPromotionalProduct]
+                    ) {
+                        return (
+                            <StyledListWithPromotionalProduct key={index}>
+                                <CardProduct
+                                    data={
+                                        promotionalfarmList[
+                                            Math.floor(
+                                                index /
+                                                    posToRenderPromotionalProduct
+                                            )
+                                        ]
+                                    }
+                                />
+                                <CardFarm data={farm} />
+                            </StyledListWithPromotionalProduct>
+                        )
+                    }
+                    return <CardFarm key={index} data={farm} />
+                })}
+            </StyledList>
+        </>
     )
 }
 

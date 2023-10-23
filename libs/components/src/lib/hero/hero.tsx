@@ -35,12 +35,11 @@ export const Hero = (props: HeroProps) => {
 
     return (
         <StyledHero>
-            {farmData && (
-                <>
-                    <StyledHeroHeader>{farmData.name}</StyledHeroHeader>
-                    <StyledHeroDesc>{farmData.description}</StyledHeroDesc>
-                </>
-            )}
+            <StyledHeroHeader>{farmData?.name || 'AgriCart'}</StyledHeroHeader>
+            <StyledHeroDesc>
+                {farmData?.description ||
+                    'AgriCart is a startup building a platform that enables people to explore and order fresh produce from local farms.'}
+            </StyledHeroDesc>
         </StyledHero>
     )
 }
