@@ -44,10 +44,6 @@ const StyledCardProductOriginalPrice = styled.span<{ $isSaled: boolean }>`
     text-decoration: ${({ $isSaled }) => ($isSaled ? 'line-through' : 'auto')};
 `
 
-// const StyledCardProductDescription = styled.p`
-//     margin-bottom: 16px;
-// `
-
 const StyledCardProductUnit = styled.p`
     // font-size: 14px;
 `
@@ -94,29 +90,34 @@ export function CardProduct(props: CardProductProps) {
                 router.push(`${AppRoutesWithPort.PRODUCT_PAGE}/${_id}`)
             }
         >
-            <StyledCardProductName>{name}</StyledCardProductName>
+            <StyledCardProductName data-testid='card-product-name'>
+                {name}
+            </StyledCardProductName>
 
             <StyledCardProductPriceSection>
                 <StyledCardProductPrice>
                     {sale_price && (
-                        <StyledCardProductSalePrice>
+                        <StyledCardProductSalePrice data-testid='card-product-sale-price'>
                             {sale_price.currency_symbol}
                             {sale_price.num}
                         </StyledCardProductSalePrice>
                     )}
 
-                    <StyledCardProductOriginalPrice $isSaled={!!sale_price}>
+                    <StyledCardProductOriginalPrice
+                        data-testid='card-product-original-price'
+                        $isSaled={!!sale_price}
+                    >
                         {price.currency_symbol}
                         {price.num}
                     </StyledCardProductOriginalPrice>
                 </StyledCardProductPrice>
             </StyledCardProductPriceSection>
 
-            <StyledCardProductUnit>
+            <StyledCardProductUnit data-testid='card-product-unit'>
                 {unit.num} {unit.description}
             </StyledCardProductUnit>
 
-            <StyledCardProductTags>
+            <StyledCardProductTags data-testid='card-product-tags'>
                 {tags.map((tag, index) => {
                     return (
                         <StyledProductTag key={index}>{tag}</StyledProductTag>
@@ -124,7 +125,7 @@ export function CardProduct(props: CardProductProps) {
                 })}
             </StyledCardProductTags>
 
-            <StyledProductQuantity>
+            <StyledProductQuantity data-testid='card-product-quantity'>
                 {quantity.replace(/_/g, ' ')}
             </StyledProductQuantity>
         </StyledCardProduct>

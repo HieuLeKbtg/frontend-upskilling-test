@@ -48,16 +48,38 @@ const StyledFarmTag = styled.div`
 `
 
 export function CardFarm(props: CardFarmProps) {
-    const { name, description, tags, _id } = props.data
+    const { data } = props
+    const { name, description, tags, _id } = data
     const router = useRouter()
+
+    // TODO: we could out-source this check empty function to a utils file
+    const isDataEmpty =
+        !data ||
+        Object.keys(data).length === 0 ||
+        Object.values(data).every((value) => {
+            if (typeof value === 'string') {
+                return !value
+            }
+            if (Array.isArray(value)) {
+                return !(value.length > 0)
+            }
+            return false
+        })
+
+    if (isDataEmpty) return null
 
     return (
         <StyledCardFarm
             onClick={() => router.push(`${AppRoutesWithPort.FARM_PAGE}/${_id}`)}
+            data-testid='card-farm'
         >
-            <StyledCardFarmName>{name}</StyledCardFarmName>
-            <StyledCardFarmDescription>{description}</StyledCardFarmDescription>
-            <StyledCardFarmTags>
+            <StyledCardFarmName data-testid='card-name'>
+                {name}
+            </StyledCardFarmName>
+            <StyledCardFarmDescription data-testid='card-desc'>
+                {description}
+            </StyledCardFarmDescription>
+            <StyledCardFarmTags data-testid='card-tags'>
                 {tags.map((tag, index) => {
                     return <StyledFarmTag key={index}>{tag}</StyledFarmTag>
                 })}
