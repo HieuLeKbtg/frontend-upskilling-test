@@ -31,9 +31,9 @@ function deriveQuerySkipFromURLParam(
 
 const API_CONFIG: APIConfig = {
     landingPageFarmsPageParam: 'page_num',
-    landingPageFarmsPageSize: 10,
+    landingPageFarmsPageSize: 15,
     numPromotionalProductsSectionParam: 'promo_num',
-    numPromotionalProductsSectionSize: 4,
+    numPromotionalProductsSectionSize: 5,
     promotionalProductTags: ['hot', 'new']
 }
 
@@ -105,7 +105,7 @@ class FarmServices {
 
     public async genPromotionalFarmProducts(
         urlParams: URLSearchParams
-    ): Promise<FarmProduct[]> {
+    ): Promise<ParsedFarmProduct[]> {
         const queryParamsMap = deriveKeyValueMapFromSearchParams(urlParams)
         const pageSize = API_CONFIG.numPromotionalProductsSectionSize
         const skip = deriveQuerySkipFromURLParam(
@@ -117,11 +117,21 @@ class FarmServices {
         const tagFilters = API_CONFIG.promotionalProductTags.map((tag) => ({
             tags: tag
         }))
-        return farmProductsColl
+        const promotionalFarmList = await farmProductsColl
             .find({ $or: tagFilters })
             .skip(skip)
             .limit(pageSize)
             .toArray()
+
+        const parsedPromotionalFarmList = promotionalFarmList.map((item) => {
+            return {
+                ...item,
+                _id: item._id.toString(),
+                farm_id: item.farm_id.toString()
+            }
+        })
+
+        return parsedPromotionalFarmList
     }
 }
 

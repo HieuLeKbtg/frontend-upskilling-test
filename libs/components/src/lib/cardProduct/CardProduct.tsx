@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation'
 import styled from 'styled-components'
 
 const StyledCardProduct = styled.article`
-    flex-basis: calc(33.33% - 15px);
+    flex-basis: calc(33.33% - 16px);
     padding: 16px;
     border: 1px solid #ddd;
     border-radius: 4px;
